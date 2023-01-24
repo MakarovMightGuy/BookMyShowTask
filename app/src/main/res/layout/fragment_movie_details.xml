@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MovieDetailsFragment">
+
+    <ScrollView
+        android:id="@+id/svMovieDetails"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="4dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/btnBookTickets"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivBackdropPath"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+                tools:srcCompat="@drawable/sample" />
+
+            <TextView
+                android:id="@+id/tvRuntime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@id/ivBackdropPath"
+                app:layout_constraintTop_toBottomOf="@id/tvOverview"
+                tools:text="2h 26m" />
+
+            <View
+                android:id="@+id/dotView1"
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:layout_marginStart="8dp"
+                android:background="@color/grey"
+                app:layout_constraintBottom_toBottomOf="@id/tvRuntime"
+                app:layout_constraintStart_toEndOf="@id/tvRuntime"
+                app:layout_constraintTop_toTopOf="@id/tvRuntime" />
+
+            <TextView
+                android:id="@+id/tvGenre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/dotView1"
+                app:layout_constraintTop_toTopOf="@id/tvRuntime"
+                tools:text="2h 26m" />
+
+            <View
+                android:id="@+id/dotView2"
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:layout_marginStart="8dp"
+                android:background="@color/grey"
+                app:layout_constraintBottom_toBottomOf="@id/tvGenre"
+                app:layout_constraintStart_toEndOf="@id/tvGenre"
+                app:layout_constraintTop_toTopOf="@id/tvGenre" />
+
+            <TextView
+                android:id="@+id/tvAdult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/dotView2"
+                app:layout_constraintTop_toTopOf="@id/tvRuntime"
+                tools:text="2h 26m" />
+
+            <View
+                android:id="@+id/dotView3"
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:layout_marginStart="8dp"
+                android:background="@color/grey"
+                app:layout_constraintBottom_toBottomOf="@id/tvAdult"
+                app:layout_constraintStart_toEndOf="@id/tvAdult"
+                app:layout_constraintTop_toTopOf="@id/tvAdult" />
+
+            <TextView
+                android:id="@+id/tvReleaseDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/dotView3"
+                app:layout_constraintTop_toTopOf="@id/tvRuntime"
+                tools:text="2h 26m" />
+
+            <TextView
+                android:id="@+id/tvOverview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ellipsize="end"
+                android:padding="8dp"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@id/ivBackdropPath"
+                app:layout_constraintStart_toStartOf="@id/ivBackdropPath"
+                app:layout_constraintTop_toBottomOf="@id/ivBackdropPath"
+                tools:text="Doctor Strange, with the help of mystical allies both old and new, traverses the mind-bending and dangerous alternate realities of the Multiverse to confront a mysterious new adversary." />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/grey"
+                app:layout_constraintTop_toBottomOf="@id/tvRuntime" />
+
+            <TextView
+                android:id="@+id/tvCast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/cast"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/ivBackdropPath"
+                app:layout_constraintTop_toBottomOf="@id/view1" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCast"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="@id/ivBackdropPath"
+                app:layout_constraintStart_toStartOf="@id/ivBackdropPath"
+                app:layout_constraintTop_toBottomOf="@id/tvCast"
+                tools:listitem="@layout/item_horizontal" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/grey"
+                app:layout_constraintTop_toBottomOf="@id/rvCast" />
+
+            <TextView
+                android:id="@+id/tvCrew"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/crew"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/ivBackdropPath"
+                app:layout_constraintTop_toBottomOf="@id/view2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCrew"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="@id/ivBackdropPath"
+                app:layout_constraintStart_toStartOf="@id/ivBackdropPath"
+                app:layout_constraintTop_toBottomOf="@id/tvCrew"
+                tools:listitem="@layout/item_horizontal" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnBookTickets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/button_color"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/book_tickets"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/button_color"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRetry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/button_color"
+        android:text="@string/retry"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
